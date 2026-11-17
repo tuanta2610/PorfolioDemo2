@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Minh Anh Trần — Marketing Specialist</title>
+<meta name="description" content="Portfolio of Minh Anh Trần, a results-driven Marketing Specialist with 5+ years of experience in digital campaigns, content strategy, and growth marketing." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* ============ Design tokens ============ */
+  :root {
+    --blue-900: #0b2545;
+    --blue-800: #10315e;
+    --blue-700: #14498f;
+    --blue-600: #1a6dd8;
+    --blue-500: #2b8cff;
+    --blue-100: #dbeeff;
+    --blue-50: #eff7ff;
+
+    --coral-600: #e8452e;
+    --coral-500: #ff5e5b;
+    --coral-100: #ffe4e0;
+
+    --neon-500: #b7f04a;
+    --neon-100: #f2ffdd;
+
+    --amber-500: #ffb347;
+    --amber-100: #fff3dd;
+
+    --ink-900: #101828;
+    --ink-700: #344054;
+    --ink-500: #667085;
+    --ink-200: #e4e7ec;
+    --ink-50: #f7f8fa;
+
+    --white: #ffffff;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --shadow-sm: 0 2px 8px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.10);
+    --shadow-lg: 0 20px 48px rgba(16, 24, 40, 0.16);
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --nav-height: 72px;
+  }
+
+  /* ============ Reset & base ============ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 8px); }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink-700);
+    background: var(--white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
+  ul { list-style: none; }
+
+  .container { width: min(1140px, 92%); margin-inline: auto; }
+  h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink-900); line-height: 1.2; }
+
+  .section { padding: 96px 0; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--blue-600);
+    background: var(--blue-50); border: 1px solid var(--blue-100);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+  }
+  .section-title { font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 14px; }
+  .section-sub { max-width: 620px; font-size: 1.05rem; color: var(--ink-500); }
+  .section-head { margin-bottom: 56px; }
+  .section-head.center { text-align: center; }
+  .section-head.center .section-sub { margin-inline: auto; }
+  .accent { color: var(--coral-500); }
+
+  /* ============ Buttons ============ */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 30px; border-radius: 999px;
+    font-weight: 700; font-size: 1rem; letter-spacing: 0.01em;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+    will-change: transform;
+  }
+  .btn-primary {
+    color: var(--white);
+    background: linear-gradient(120deg, var(--blue-600), var(--coral-500));
+    background-size: 160% 160%;
+    box-shadow: 0 10px 26px rgba(43, 140, 255, 0.35);
+  }
+  .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 34px rgba(43, 140, 255, 0.45); background-position: 80% 50%; }
+  .btn-ghost { color: var(--white); border: 2px solid rgba(255, 255, 255, 0.55); }
+  .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--white); transform: translateY(-3px); }
+  .btn-dark { color: var(--white); background: var(--ink-900); }
+  .btn-dark:hover { background: var(--blue-600); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .btn:active { transform: translateY(-1px) scale(0.99); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--blue-500); outline-offset: 3px;
+  }
+
+  /* ============ Navbar ============ */
+  .navbar {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    height: var(--nav-height);
+    display: flex; align-items: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  }
+  .navbar .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-sm);
+  }
+  .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--white); display: flex; align-items: center; gap: 10px; transition: color 0.3s ease; }
+  .logo-mark {
+    width: 34px; height: 34px; border-radius: 10px; flex: none;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--blue-500), var(--coral-500));
+    color: var(--white); font-size: 0.95rem; font-weight: 700;
+  }
+  .logo span.dot { color: var(--neon-500); }
+  .navbar.scrolled .logo { color: var(--ink-900); }
+
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a {
+    position: relative; padding: 10px 14px; border-radius: 999px;
+    font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.85);
+    transition: color 0.25s ease, background 0.25s ease;
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 14px; right: 14px; bottom: 5px;
+    height: 2px; border-radius: 2px; background: var(--neon-500);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.28s ease;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a.active { color: var(--white); }
+  .navbar.scrolled .nav-links a { color: var(--ink-700); }
+  .navbar.scrolled .nav-links a:hover, .navbar.scrolled .nav-links a.active { color: var(--blue-600); }
+
+  .nav-cta { display: inline-flex; }
+  .nav-cta .btn { padding: 10px 22px; font-size: 0.9rem; }
+
+  .hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; border-radius: 12px; z-index: 110;
+    align-items: center;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2.5px; border-radius: 2px;
+    background: var(--white); transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+  }
+  .navbar.scrolled .hamburger span { background: var(--ink-900); }
+  .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 99;
+    background: linear-gradient(160deg, var(--blue-900), var(--blue-700));
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    opacity: 0; pointer-events: none; transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .mobile-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .mobile-menu a {
+    font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+    color: var(--white); padding: 12px 24px; opacity: 0; transform: translateY(14px);
+    transition: opacity 0.35s ease, transform 0.35s ease, color 0.25s ease;
+  }
+  .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+  .mobile-menu a:nth-child(1) { transition-delay: 0.05s; }
+  .mobile-menu a:nth-child(2) { transition-delay: 0.1s; }
+  .mobile-menu a:nth-child(3) { transition-delay: 0.15s; }
+  .mobile-menu a:nth-child(4) { transition-delay: 0.2s; }
+  .mobile-menu a:nth-child(5) { transition-delay: 0.25s; }
+  .mobile-menu a:nth-child(6) { transition-delay: 0.3s; }
+  .mobile-menu a:hover { color: var(--neon-500); }
+
+  /* ============ Hero ============ */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center;
+    background: var(--blue-900);
+    color: var(--white);
+    overflow: hidden;
+    padding: calc(var(--nav-height) + 32px) 0 80px;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .blob {
+    position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.55;
+    animation: drift 16s ease-in-out infinite alternate;
+  }
+  .blob-1 { width: 540px; height: 540px; background: var(--blue-500); top: -140px; left: -120px; }
+  .blob-2 { width: 460px; height: 460px; background: var(--coral-500); bottom: -160px; right: -100px; animation-delay: -5s; animation-duration: 20s; }
+  .blob-3 { width: 320px; height: 320px; background: var(--neon-500); top: 40%; left: 55%; opacity: 0.3; animation-delay: -10s; }
+  @keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, -40px) scale(1.12); }
+    100% { transform: translate(-40px, 40px) scale(0.94); }
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 30%, transparent 75%);
+  }
+  .particles { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .particle {
+    position: absolute; bottom: -20px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: rise linear infinite;
+  }
+  @keyframes rise {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-105vh) translateX(40px); opacity: 0; }
+  }
+
+  .hero .container { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-badge .pulse {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--neon-500);
+    box-shadow: 0 0 0 0 rgba(183, 240, 74, 0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(183, 240, 74, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(183, 240, 74, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(183, 240, 74, 0); }
+  }
+  .hero h1 {
+    color: var(--white);
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    font-weight: 700; line-height: 1.08;
+    max-width: 820px;
+    margin-bottom: 10px;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(90deg, var(--neon-500), var(--blue-500) 55%, var(--coral-500));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-role {
+    display: inline-block; font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem); font-weight: 500;
+    color: var(--amber-500); margin-bottom: 20px; min-height: 1.5em;
+  }
+  .hero-role .cursor {
+    display: inline-block; width: 3px; height: 1em; margin-left: 4px;
+    background: var(--amber-500); vertical-align: text-bottom;
+    animation: blink 0.9s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero-tagline { max-width: 560px; font-size: 1.1rem; color: rgba(255, 255, 255, 0.78); margin-bottom: 40px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+  .hero-scroll {
+    position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255, 255, 255, 0.6); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .hero-scroll .mouse {
+    width: 24px; height: 38px; border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 14px;
+    display: flex; justify-content: center; padding-top: 7px;
+  }
+  .hero-scroll .mouse::before {
+    content: ""; width: 4px; height: 8px; border-radius: 2px; background: var(--neon-500);
+    animation: wheel 1.6s ease-in-out infinite;
+  }
+  @keyframes wheel {
+    0% { transform: translateY(0); opacity: 1; }
+    70% { transform: translateY(12px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
+
+  /* Hero entrance animation */
+  .anim-in { opacity: 0; transform: translateY(34px); animation: heroIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.25s; }
+  .d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.55s; } .d5 { animation-delay: 0.7s; }
+  @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+  /* ============ Scroll reveal ============ */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+
+  /* ============ About ============ */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 6vw, 88px); align-items: center;
+  }
+  .about-visual { position: relative; }
+  .avatar {
+    width: min(340px, 80%); aspect-ratio: 1; margin-inline: auto;
+    border-radius: 36% 64% 58% 42% / 46% 42% 58% 54%;
+    background: linear-gradient(135deg, var(--blue-500), var(--coral-500));
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-size: clamp(3.4rem, 9vw, 5.2rem); font-weight: 700; color: var(--white);
+    box-shadow: var(--shadow-lg);
+    animation: blobMorph 9s ease-in-out infinite;
+  }
+  @keyframes blobMorph {
+    0%, 100% { border-radius: 36% 64% 58% 42% / 46% 42% 58% 54%; }
+    50% { border-radius: 58% 42% 38% 62% / 56% 60% 40% 44%; }
+  }
+  .avatar-ring {
+    position: absolute; inset: -6%; border-radius: 50%;
+    border: 2px dashed var(--blue-100); z-index: -1;
+    animation: spin 28s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .float-chip {
+    position: absolute; display: flex; align-items: center; gap: 8px;
+    background: var(--white); border: 1px solid var(--ink-200); border-radius: 999px;
+    padding: 10px 18px; font-size: 0.85rem; font-weight: 700; color: var(--ink-900);
+    box-shadow: var(--shadow-md);
+    animation: floaty 5s ease-in-out infinite;
+  }
+  .float-chip .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+  .chip-1 { top: 8%; right: 0; }
+  .chip-1 .dot { background: var(--neon-500); }
+  .chip-2 { bottom: 10%; left: 0; animation-delay: -2.5s; }
+  .chip-2 .dot { background: var(--coral-500); }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .about-text h3 { font-size: 1.5rem; margin-bottom: 16px; }
+  .about-text p { margin-bottom: 16px; color: var(--ink-500); }
+  .about-text strong { color: var(--ink-900); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    margin-top: 64px;
+  }
+  .stat {
+    text-align: center; padding: 30px 16px;
+    background: var(--ink-50); border: 1px solid var(--ink-200);
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .stat:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--blue-500); }
+  .stat .num {
+    font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
+    background: linear-gradient(90deg, var(--blue-600), var(--coral-500));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .stat .label { font-size: 0.88rem; font-weight: 600; color: var(--ink-500); margin-top: 4px; }
+
+  /* ============ Skills ============ */
+  .skills { background: var(--blue-900); position: relative; overflow: hidden; }
+  .skills::before {
+    content: ""; position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(43, 140, 255, 0.25), transparent 70%);
+    top: -200px; right: -150px; pointer-events: none;
+  }
+  .skills .section-label { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: var(--neon-500); }
+  .skills .section-title { color: var(--white); }
+  .skills .section-sub { color: rgba(255,255,255,0.65); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; }
+  .skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .skill-card:hover { transform: translateY(-6px); border-color: var(--blue-500); background: rgba(255, 255, 255, 0.08); }
+  .skill-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .skill-icon {
+    width: 48px; height: 48px; flex: none; border-radius: 14px;
+    display: grid; place-items: center; font-size: 1.3rem;
+  }
+  .icon-blue { background: rgba(43, 140, 255, 0.18); color: var(--blue-500); }
+  .icon-coral { background: rgba(255, 94, 91, 0.18); color: var(--coral-500); }
+  .icon-neon { background: rgba(183, 240, 74, 0.16); color: var(--neon-500); }
+  .icon-amber { background: rgba(255, 179, 71, 0.18); color: var(--amber-500); }
+  .skill-head h3 { color: var(--white); font-size: 1.1rem; }
+  .skill-head p { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+  .bar-row { margin-bottom: 16px; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-top { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 8px; }
+  .bar-top .pct { color: var(--neon-500); }
+  .bar-track { height: 8px; border-radius: 999px; background: rgba(255,255,255,0.12); overflow: hidden; }
+  .bar-fill {
+    height: 100%; width: 0; border-radius: 999px;
+    background: linear-gradient(90deg, var(--blue-500), var(--neon-500));
+    transition: width 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .bar-fill.coral { background: linear-gradient(90deg, var(--coral-600), var(--amber-500)); }
+  .bar-fill.blue { background: linear-gradient(90deg, var(--blue-600), var(--blue-500)); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag {
+    font-size: 0.75rem; font-weight: 600; padding: 5px 12px; border-radius: 999px;
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.14);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+  .tag:hover { background: var(--neon-500); color: var(--blue-900); transform: translateY(-2px); border-color: transparent; }
+
+  /* ============ Case studies ============ */
+  .work { background: var(--ink-50); }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    gap: 24px;
+  }
+  .card {
+    grid-column: span 3;
+    position: relative; overflow: hidden;
+    background: var(--white); border: 1px solid var(--ink-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .card:nth-child(1) { grid-column: span 4; }
+  .card:nth-child(2) { grid-column: span 2; }
+  .card:nth-child(3) { grid-column: span 2; }
+  .card:nth-child(4) { grid-column: span 4; }
+  .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+  .thumb {
+    position: relative; height: 240px; overflow: hidden;
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: rgba(255,255,255,0.9);
+  }
+  .card:nth-child(2) .thumb, .card:nth-child(3) .thumb { height: 200px; }
+  .thumb.t-1 { background: linear-gradient(130deg, var(--blue-600), var(--blue-900)); }
+  .thumb.t-2 { background: linear-gradient(130deg, var(--coral-500), var(--coral-600)); }
+  .thumb.t-3 { background: linear-gradient(130deg, #0e9f6e, #057a55); }
+  .thumb.t-4 { background: linear-gradient(130deg, var(--amber-500), var(--coral-600)); }
+  .thumb::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(rgba(255,255,255,0.16) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .thumb .emoji { position: relative; z-index: 1; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.25)); transition: transform 0.4s ease; }
+  .card:hover .thumb .emoji { transform: scale(1.18) rotate(-6deg); }
+  .card-body { padding: 26px; }
+  .card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  .cat-tag {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .cat-blue { background: var(--blue-50); color: var(--blue-600); }
+  .cat-coral { background: var(--coral-100); color: var(--coral-600); }
+  .cat-green { background: var(--neon-100); color: #3f6212; }
+  .cat-amber { background: var(--amber-100); color: #b45309; }
+  .year { font-size: 0.8rem; color: var(--ink-500); font-weight: 600; }
+  .card h3 { font-size: 1.3rem; margin-bottom: 8px; transition: color 0.25s ease; }
+  .card:hover h3 { color: var(--blue-600); }
+  .card > .card-body > p { font-size: 0.95rem; color: var(--ink-500); }
+  .metrics { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 20px; }
+  .metric {
+    font-size: 0.85rem; font-weight: 700; color: var(--ink-900);
+    background: var(--ink-50); border: 1px solid var(--ink-200);
+    padding: 6px 14px; border-radius: 999px;
+  }
+  .metric b { color: var(--coral-600); }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 0.95rem; color: var(--blue-600);
+  }
+  .card-link .arrow { transition: transform 0.25s ease; }
+  .card-link:hover .arrow { transform: translateX(6px); }
+
+  /* ============ Certifications ============ */
+  .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .cert {
+    position: relative; text-align: center; padding: 34px 22px 30px;
+    background: var(--white); border: 1px solid var(--ink-200);
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .cert::before {
+    content: ""; position: absolute; top: 0; left: 20%; right: 20%; height: 4px;
+    border-radius: 0 0 6px 6px; background: linear-gradient(90deg, var(--blue-500), var(--coral-500));
+  }
+  .cert:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-color: var(--blue-100); }
+  .cert-logo {
+    width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 20px;
+    display: grid; place-items: center; font-size: 1.9rem;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .cert:hover .cert-logo { transform: scale(1.1) rotate(-5deg); }
+  .logo-g { background: var(--blue-50); }
+  .logo-m { background: var(--blue-100); }
+  .logo-h { background: var(--coral-100); }
+  .logo-ga { background: var(--neon-100); }
+  .cert h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .cert .org { font-size: 0.88rem; color: var(--ink-500); font-weight: 600; }
+  .cert .year-badge {
+    display: inline-block; margin-top: 14px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em;
+    color: var(--blue-600); background: var(--blue-50);
+    padding: 4px 12px; border-radius: 999px;
+  }
+
+  /* ============ Contact ============ */
+  .contact { background: var(--blue-900); position: relative; overflow: hidden; }
+  .contact::after {
+    content: ""; position: absolute; width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 94, 91, 0.28), transparent 70%);
+    bottom: -200px; left: -150px; pointer-events: none;
+  }
+  .contact .section-label { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: var(--neon-500); }
+  .contact .section-title { color: var(--white); }
+  .contact .section-sub { color: rgba(255,255,255,0.65); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px, 6vw, 80px); position: relative; }
+  .contact-info h3 { color: var(--white); font-size: 1.6rem; margin-bottom: 14px; }
+  .contact-info p { color: rgba(255,255,255,0.7); margin-bottom: 30px; max-width: 420px; }
+  .contact-facts { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+  .fact { display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.85); font-weight: 600; font-size: 0.95rem; }
+  .fact .f-icon {
+    width: 44px; height: 44px; flex: none; border-radius: 12px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    display: grid; place-items: center; font-size: 1.1rem;
+  }
+  .socials { display: flex; gap: 14px; }
+  .social {
+    width: 48px; height: 48px; border-radius: 14px;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+    color: var(--white); font-size: 0.85rem; font-weight: 700;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+  .social:hover { transform: translateY(-5px) scale(1.05); background: var(--neon-500); border-color: var(--neon-500); color: var(--blue-900); }
+
+  .form-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    padding: clamp(26px, 4vw, 40px); box-shadow: var(--shadow-lg);
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 0.88rem; font-weight: 700; color: var(--ink-900); margin-bottom: 8px;
+  }
+  .form-group input, .form-group textarea {
+    width: 100%; padding: 14px 16px;
+    font: inherit; color: var(--ink-900);
+    background: var(--ink-50); border: 2px solid var(--ink-200);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-group input:hover, .form-group textarea:hover { border-color: #c7ceda; }
+  .form-group input:focus, .form-group textarea:focus {
+    outline: none; background: var(--white);
+    border-color: var(--blue-500);
+    box-shadow: 0 0 0 4px rgba(43, 140, 255, 0.15);
+  }
+  .form-group input.invalid, .form-group textarea.invalid {
+    border-color: var(--coral-500);
+    background: #fff8f7;
+  }
+  .form-group input.valid, .form-group textarea.valid { border-color: #12b76a; }
+  .error-msg {
+    display: none; margin-top: 6px;
+    font-size: 0.8rem; font-weight: 600; color: var(--coral-600);
+  }
+  .error-msg.show { display: block; animation: shake 0.35s ease; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  .form-card .btn { width: 100%; }
+  .form-note { text-align: center; font-size: 0.82rem; color: var(--ink-500); margin-top: 14px; }
+  .form-success {
+    display: none; align-items: center; gap: 10px;
+    background: var(--neon-100); border: 1px solid #b7e07e; color: #3f6212;
+    padding: 14px 18px; border-radius: var(--radius-sm);
+    font-weight: 600; font-size: 0.92rem; margin-bottom: 20px;
+  }
+  .form-success.show { display: flex; animation: heroIn 0.5s ease forwards; }
+
+  /* ============ Footer ============ */
+  footer { background: #071a33; color: rgba(255,255,255,0.6); padding: 30px 0; text-align: center; font-size: 0.88rem; }
+  footer .container { display: flex; flex-direction: column; gap: 6px; }
+  footer b { color: var(--white); }
+  footer .heart { color: var(--coral-500); }
+
+  /* ============ Back to top ============ */
+  .to-top {
+    position: fixed; right: 24px; bottom: 24px; z-index: 90;
+    width: 48px; height: 48px; border-radius: 14px;
+    background: var(--ink-900); color: var(--white);
+    display: grid; place-items: center; font-size: 1.1rem;
+    box-shadow: var(--shadow-md);
+    opacity: 0; transform: translateY(16px); pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  }
+  .to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .to-top:hover { background: var(--blue-600); transform: translateY(-4px); }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 992px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .certs-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-visual { order: -1; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+    .card:nth-child(n) { grid-column: span 2; }
+    .card:nth-child(even) .thumb { height: 200px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .nav-cta { display: none; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .section { padding: 72px 0; }
+    .work-grid { grid-template-columns: 1fr; }
+    .card:nth-child(n) { grid-column: span 1; }
+  }
+  @media (max-width: 560px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .hero-actions .btn { width: 100%; }
+    .thumb { height: 190px !important; }
+    .to-top { right: 16px; bottom: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+    .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; }
+  }
+</style>
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
+<body>
+
+<!-- ============ Navbar ============ -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="#home" class="logo" aria-label="Minh Anh Trần — home">
+      <span class="logo-mark">MA</span>
+      MinhAnh<span class="dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Case Studies</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Hire Me</a>
+    </span>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#work">Case Studies</a>
+  <a href="#certs">Certifications</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="particles" id="particles"></div>
+  </div>
+  <div class="container">
+    <span class="hero-badge anim-in d1"><span class="pulse"></span> Open to Marketing Opportunities</span>
+    <h1 class="anim-in d2">Hi, I'm Minh Anh —<br />I turn <span class="highlight">ideas into growth.</span></h1>
+    <div class="hero-role anim-in d3"><span id="typed">Marketing Specialist</span><span class="cursor"></span></div>
+    <p class="hero-tagline anim-in d4">
+      Data-driven marketer with 5+ years of experience crafting campaigns that connect brands
+      with people — and turn attention into measurable revenue.
+    </p>
+    <div class="hero-actions anim-in d5">
+      <a href="#work" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="mouse"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ============ About ============ -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">✦ About / Giới thiệu</span>
+      <h2 class="section-title">Marketing that moves <span class="accent">the numbers</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="avatar" role="img" aria-label="Profile photo placeholder with initials MA">MA</div>
+        <div class="avatar-ring" aria-hidden="true"></div>
+        <div class="float-chip chip-1"><span class="dot"></span> Available for hire</div>
+        <div class="float-chip chip-2"><span class="dot"></span> Ho Chi Minh City, VN</div>
+      </div>
+      <div class="about-text reveal-right">
+        <h3>From campaign briefs to bottom-line results.</h3>
+        <p>
+          I'm a <strong>Marketing Specialist</strong> with over five years of experience across
+          <strong>digital advertising, content strategy, and brand growth</strong> — planning and
+          executing full-funnel campaigns for FMCG, e-commerce, and EdTech brands in Vietnam and across Southeast Asia.
+        </p>
+        <p>
+          My approach is simple: <strong>listen to the data, respect the audience, and tell a story worth sharing.</strong>
+          I thrive at the intersection of creativity and analytics — whether that's scaling a performance campaign,
+          building a content engine from zero, or mentoring young marketers along the way.
+        </p>
+        <p>
+          Right now, I'm looking for my next challenge: a team where bold ideas are welcome,
+          results are measured, and marketing has a real seat at the table.
+        </p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="num"><span class="counter" data-target="5">0</span>+</div>
+        <div class="label">Years of Experience</div>
+      </div>
+      <div class="stat reveal reveal-delay-1">
+        <div class="num"><span class="counter" data-target="48">0</span>+</div>
+        <div class="label">Campaigns Delivered</div>
+      </div>
+      <div class="stat reveal reveal-delay-2">
+        <div class="num"><span class="counter" data-target="25">0</span>+</div>
+        <div class="label">Brands Worked With</div>
+      </div>
+      <div class="stat reveal reveal-delay-3">
+        <div class="num"><span class="counter" data-target="12">0</span></div>
+        <div class="label">Industry Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Skills ============ -->
+<section class="skills section" id="skills">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">⚙ Skills / Kỹ năng</span>
+      <h2 class="section-title">A full-stack marketing toolkit</h2>
+      <p class="section-sub">Six disciplines, one goal: sustainable, measurable growth for every brand I work with.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-head">
+          <span class="skill-icon icon-blue">📣</span>
+          <div><h3>Digital Marketing</h3><p>Full-funnel strategy &amp; execution</p></div>
+        </div>
+        <div class="bar-row"><div class="bar-top"><span>Campaign Strategy</span><span class="pct">95%</span></div><div class="bar-track"><div class="bar-fill" data-width="95"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Performance Marketing</span><span class="pct">90%</span></div><div class="bar-track"><div class="bar-fill" data-width="90"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Email &amp; CRM</span><span class="pct">82%</span></div><div class="bar-track"><div class="bar-fill" data-width="82"></div></div></div>
+        <div class="skill-tags"><span class="tag">Funnel Design</span><span class="tag">A/B Testing</span><span class="tag">Retargeting</span></div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-head">
+          <span class="skill-icon icon-coral">✍️</span>
+          <div><h3>Content &amp; Copywriting</h3><p>Stories that sell, softly</p></div>
+        </div>
+        <div class="bar-row"><div class="bar-top"><span>Content Strategy</span><span class="pct">92%</span></div><div class="bar-track"><div class="bar-fill coral" data-width="92"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Brand Storytelling</span><span class="pct">88%</span></div><div class="bar-track"><div class="bar-fill coral" data-width="88"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Video Scripting</span><span class="pct">80%</span></div><div class="bar-track"><div class="bar-fill coral" data-width="80"></div></div></div>
+        <div class="skill-tags"><span class="tag">Editorial Planning</span><span class="tag">Ad Copy</span><span class="tag">Localization</span></div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-head">
+          <span class="skill-icon icon-neon">🔍</span>
+          <div><h3>SEO / SEM</h3><p>Rankings &amp; paid search that convert</p></div>
+        </div>
+        <div class="bar-row"><div class="bar-top"><span>Technical &amp; On-page SEO</span><span class="pct">87%</span></div><div class="bar-track"><div class="bar-fill blue" data-width="87"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Google Ads / SEM</span><span class="pct">90%</span></div><div class="bar-track"><div class="bar-fill blue" data-width="90"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Keyword Research</span><span class="pct">93%</span></div><div class="bar-track"><div class="bar-fill blue" data-width="93"></div></div></div>
+        <div class="skill-tags"><span class="tag">Search Console</span><span class="tag">SEMrush</span><span class="tag">Ahrefs</span></div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-head">
+          <span class="skill-icon icon-amber">💬</span>
+          <div><h3>Social Media</h3><p>Communities, not just followers</p></div>
+        </div>
+        <div class="bar-row"><div class="bar-top"><span>Meta / TikTok Ads</span><span class="pct">91%</span></div><div class="bar-track"><div class="bar-fill coral" data-width="91"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Community Management</span><span class="pct">85%</span></div><div class="bar-track"><div class="bar-fill coral" data-width="85"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Influencer &amp; KOC Campaigns</span><span class="pct">86%</span></div><div class="bar-track"><div class="bar-fill coral" data-width="86"></div></div></div>
+        <div class="skill-tags"><span class="tag">Social Listening</span><span class="tag">TikTok Shop</span><span class="tag">UGC</span></div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-head">
+          <span class="skill-icon icon-blue">📊</span>
+          <div><h3>Data &amp; Analytics</h3><p>Decisions backed by numbers</p></div>
+        </div>
+        <div class="bar-row"><div class="bar-top"><span>Google Analytics 4</span><span class="pct">89%</span></div><div class="bar-track"><div class="bar-fill blue" data-width="89"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Dashboards &amp; Reporting</span><span class="pct">84%</span></div><div class="bar-track"><div class="bar-fill blue" data-width="84"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Conversion Rate Optimization</span><span class="pct">81%</span></div><div class="bar-track"><div class="bar-fill blue" data-width="81"></div></div></div>
+        <div class="skill-tags"><span class="tag">Looker Studio</span><span class="tag">SQL Basics</span><span class="tag">Attribution</span></div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-head">
+          <span class="skill-icon icon-neon">🎨</span>
+          <div><h3>Design Tools</h3><p>Visual thinking, hands-on execution</p></div>
+        </div>
+        <div class="bar-row"><div class="bar-top"><span>Figma</span><span class="pct">85%</span></div><div class="bar-track"><div class="bar-fill" data-width="85"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Canva &amp; CapCut</span><span class="pct">94%</span></div><div class="bar-track"><div class="bar-fill" data-width="94"></div></div></div>
+        <div class="bar-row"><div class="bar-top"><span>Adobe Photoshop</span><span class="pct">75%</span></div><div class="bar-track"><div class="bar-fill" data-width="75"></div></div></div>
+        <div class="skill-tags"><span class="tag">Landing Pages</span><span class="tag">Motion Basics</span><span class="tag">Brand Kits</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Case Studies ============ -->
+<section class="work section" id="work">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">◈ Case Studies / Dự án</span>
+      <h2 class="section-title">Work that worked</h2>
+      <p class="section-sub">A selection of campaigns where strategy, creativity, and data came together to deliver real business results.</p>
+    </div>
+    <div class="work-grid">
+      <article class="card reveal">
+        <div class="thumb t-1"><span class="emoji">🚀</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="cat-tag cat-blue">Performance Marketing</span>
+            <span class="year">2025 · EdTech</span>
+          </div>
+          <h3>Spring Learning — Course Launch Campaign</h3>
+          <p>
+            Built a full-funnel launch campaign combining paid search, social retargeting, and
+            an email nurture flow for a new online English course targeting young professionals.
+          </p>
+          <div class="metrics">
+            <span class="metric"><b>+150%</b> organic traffic</span>
+            <span class="metric"><b>4.2x</b> ROAS</span>
+            <span class="metric"><b>-35%</b> cost per lead</span>
+          </div>
+          <a href="#contact" class="card-link" aria-label="View details of the Spring Learning campaign">View Details <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="card reveal reveal-delay-1">
+        <div class="thumb t-2"><span class="emoji">🛍️</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="cat-tag cat-coral">Social Media</span>
+            <span class="year">2024 · E-commerce</span>
+          </div>
+          <h3>Là Gì Cũng Hay — TikTok Growth</h3>
+          <p>From 0 to 120K followers in 6 months with a UGC-first content engine.</p>
+          <div class="metrics">
+            <span class="metric"><b>120K</b> followers</span>
+            <span class="metric"><b>8.7%</b> engagement</span>
+          </div>
+          <a href="#contact" class="card-link" aria-label="View details of the TikTok growth project">View Details <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="card reveal reveal-delay-2">
+        <div class="thumb t-3"><span class="emoji">🌱</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="cat-tag cat-green">Content &amp; SEO</span>
+            <span class="year">2024 · FMCG</span>
+          </div>
+          <h3>GreenBite — SEO Content Hub</h3>
+          <p>Launched a recipe &amp; wellness content hub that now drives 40% of site revenue.</p>
+          <div class="metrics">
+            <span class="metric"><b>+230%</b> organic sessions</span>
+            <span class="metric"><b>#1</b> for 18 keywords</span>
+          </div>
+          <a href="#contact" class="card-link" aria-label="View details of the GreenBise SEO project">View Details <span class="arrow">→</span></a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="thumb t-4"><span class="emoji">☕</span></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="cat-tag cat-amber">Brand Campaign</span>
+            <span class="year">2023 · F&amp;B</span>
+          </div>
+          <h3>HiCà Phê — "Morning of the City" Rebrand</h3>
+          <p>
+            Led the rebrand of a regional coffee chain: new visual identity, a city-wide OOH +
+            social campaign, and a loyalty app launch that turned one-time buyers into regulars.
+            The campaign earned two national marketing awards and lifted repeat purchases within one quarter.
+          </p>
+          <div class="metrics">
+            <span class="metric"><b>+64%</b> repeat purchases</span>
+            <span class="metric"><b>2.1M</b> campaign reach</span>
+            <span class="metric"><b>2</b> industry awards</span>
+          </div>
+          <a href="#contact" class="card-link" aria-label="View details of the HiCà Phê rebrand campaign">View Details <span class="arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Certifications ============ -->
+<section class="certs section" id="certs">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">✔ Certifications / Chứng chỉ</span>
+      <h2 class="section-title">Always learning, always certified</h2>
+      <p class="section-sub">Recognized credentials from the platforms and frameworks I use every day.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert reveal">
+        <div class="cert-logo logo-g" aria-hidden="true">🎯</div>
+        <h3>Google Ads Search Certification</h3>
+        <p class="org">Google Skillshop</p>
+        <span class="year-badge">2025</span>
+      </div>
+      <div class="cert reveal reveal-delay-1">
+        <div class="cert-logo logo-m" aria-hidden="true">📘</div>
+        <h3>Meta Certified Media Buying Professional</h3>
+        <p class="org">Meta Blueprint</p>
+        <span class="year-badge">2024</span>
+      </div>
+      <div class="cert reveal reveal-delay-2">
+        <div class="cert-logo logo-h" aria-hidden="true">🧲</div>
+        <h3>Inbound Marketing Certification</h3>
+        <p class="org">HubSpot Academy</p>
+        <span class="year-badge">2024</span>
+      </div>
+      <div class="cert reveal reveal-delay-3">
+        <div class="cert-logo logo-ga" aria-hidden="true">📈</div>
+        <h3>Google Analytics 4 Certification</h3>
+        <p class="org">Google Skillshop</p>
+        <span class="year-badge">2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">✉ Contact / Liên hệ</span>
+      <h2 class="section-title">Let's Create Something Great Together</h2>
+      <p class="section-sub">Hiring for a marketing role, or just want to talk campaigns? My inbox is always open.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <h3>Why work with me?</h3>
+        <p>
+          I bring the strategy of an agency lead and the hands-on hustle of an in-house marketer.
+          Let's talk about how I can help your team grow.
+        </p>
+        <div class="contact-facts">
+          <div class="fact"><span class="f-icon">📍</span> Ho Chi Minh City, Vietnam</div>
+          <div class="fact"><span class="f-icon">📧</span> minhanh.tran@example.com</div>
+          <div class="fact"><span class="f-icon">📞</span> (+84) 912 345 678</div>
+        </div>
+        <div class="socials" aria-label="Social media links">
+          <a class="social" href="#" aria-label="LinkedIn">in</a>
+          <a class="social" href="#" aria-label="Facebook">f</a>
+          <a class="social" href="#" aria-label="Instagram">ig</a>
+          <a class="social" href="mailto:minhanh.tran@example.com" aria-label="Email">@</a>
+        </div>
+      </div>
+      <div class="form-card reveal-right">
+        <div class="form-success" id="formSuccess" role="status">
+          ✔ Thank you! Your message has been sent — I'll get back to you within 24 hours.
+        </div>
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Sarah Nguyen" required />
+            <span class="error-msg" id="nameError">Please enter your name.</span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required />
+            <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about the role or project you have in mind…" required></textarea>
+            <span class="error-msg" id="messageError">Please write a short message (at least 10 characters).</span>
+          </div>
+          <button type="submit" class="btn btn-dark">Send Message ➜</button>
+          <p class="form-note">Usually replies within 24 hours</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 <b>Minh Anh Trần</b> — Marketing Specialist. Crafted with <span class="heart">♥</span> and a lot of coffee.</p>
+    <p>Currently open to full-time and contract marketing roles.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+  (function () {
+    "use strict";
+
+    /* ---------- Sticky navbar style + back-to-top ---------- */
+    var navbar = document.getElementById("navbar");
+    var toTop = document.getElementById("toTop");
+    function onScroll() {
+      var y = window.scrollY;
+      navbar.classList.toggle("scrolled", y > 60);
+      toTop.classList.toggle("show", y > 600);
+      setActiveLink();
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* ---------- Mobile menu ---------- */
+    var hamburger = document.getElementById("hamburger");
+    var mobileMenu = document.getElementById("mobileMenu");
+    function closeMenu() {
+      hamburger.classList.remove("open");
+      mobileMenu.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+    hamburger.addEventListener("click", function () {
+      var open = mobileMenu.classList.toggle("open");
+      hamburger.classList.toggle("open", open);
+      hamburger.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+    mobileMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    /* ---------- Active nav link on scroll ---------- */
+    var sections = Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+    var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+    function setActiveLink() {
+      var pos = window.scrollY + 140;
+      var current = sections[0] ? sections[0].id : "";
+      sections.forEach(function (sec) {
+        if (sec.offsetTop <= pos) current = sec.id;
+      });
+      navAnchors.forEach(function (a) {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+      });
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    var revealEls = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("visible"); });
+    }
+
+    /* ---------- Animated counters ---------- */
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute("data-target"), 10) || 0;
+      var duration = 1600;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll(".counter");
+    if ("IntersectionObserver" in window) {
+      var counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(function (c) { counterObserver.observe(c); });
+    } else {
+      counters.forEach(function (c) { c.textContent = c.getAttribute("data-target"); });
+    }
+
+    /* ---------- Skill bars ---------- */
+    var bars = document.querySelectorAll(".bar-fill");
+    if ("IntersectionObserver" in window) {
+      var barObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.getAttribute("data-width") + "%";
+            barObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      bars.forEach(function (b) { barObserver.observe(b); });
+    } else {
+      bars.forEach(function (b) { b.style.width = b.getAttribute("data-width") + "%"; });
+    }
+
+    /* ---------- Hero typing effect ---------- */
+    var roles = ["Marketing Specialist", "Growth Marketer", "Content Strategist", "SEO Enthusiast"];
+    var typedEl = document.getElementById("typed");
+    var roleIndex = 0, charIndex = 0, deleting = false;
+    function typeLoop() {
+      var word = roles[roleIndex];
+      if (!deleting) {
+        charIndex++;
+        typedEl.textContent = word.slice(0, charIndex);
+        if (charIndex === word.length) {
+          deleting = true;
+          setTimeout(typeLoop, 2000);
+          return;
+        }
+      } else {
+        charIndex--;
+        typedEl.textContent = word.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
+      setTimeout(typeLoop, deleting ? 45 : 90);
+    }
+    setTimeout(typeLoop, 1200);
+
+    /* ---------- Hero particles ---------- */
+    var particles = document.getElementById("particles");
+    if (particles && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      for (var i = 0; i < 18; i++) {
+        var p = document.createElement("span");
+        p.className = "particle";
+        var size = Math.random() * 5 + 2;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+        p.style.left = Math.random() * 100 + "%";
+        p.style.animationDuration = (Math.random() * 10 + 8) + "s";
+        p.style.animationDelay = "-" + (Math.random() * 14) + "s";
+        p.style.opacity = String(Math.random() * 0.5 + 0.2);
+        particles.appendChild(p);
+      }
+    }
+
+    /* ---------- Contact form validation ---------- */
+    var form = document.getElementById("contactForm");
+    var success = document.getElementById("formSuccess");
+    var fields = {
+      name: {
+        input: document.getElementById("name"),
+        error: document.getElementById("nameError"),
+        valid: function (v) { return v.trim().length >= 2; }
+      },
+      email: {
+        input: document.getElementById("email"),
+        error: document.getElementById("emailError"),
+        valid: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+      },
+      message: {
+        input: document.getElementById("message"),
+        error: document.getElementById("messageError"),
+        valid: function (v) { return v.trim().length >= 10; }
+      }
+    };
+    function checkField(key, showErrors) {
+      var f = fields[key];
+      var ok = f.valid(f.input.value);
+      if (showErrors || f.input.classList.contains("invalid")) {
+        f.error.classList.toggle("show", !ok);
+      }
+      f.input.classList.toggle("invalid", showErrors && !ok);
+      f.input.classList.toggle("valid", ok && f.input.value.length > 0);
+      return ok;
+    }
+    Object.keys(fields).forEach(function (key) {
+      var f = fields[key];
+      f.input.addEventListener("blur", function () { if (f.input.value) checkField(key, true); });
+      f.input.addEventListener("input", function () { checkField(key, false); });
+    });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var allOk = true;
+      Object.keys(fields).forEach(function (key) {
+        if (!checkField(key, true)) allOk = false;
+      });
+      if (!allOk) return;
+      success.classList.add("show");
+      form.reset();
+      Object.keys(fields).forEach(function (key) {
+        fields[key].input.classList.remove("valid", "invalid");
+        fields[key].error.classList.remove("show");
+      });
+      setTimeout(function () { success.classList.remove("show"); }, 6000);
+    });
+
+    /* ---------- Init ---------- */
+    onScroll();
+  })();
+</script>
+</body>
+</html>
